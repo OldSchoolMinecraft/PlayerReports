@@ -43,7 +43,8 @@ public class PlayerHandler extends PlayerListener
 		{
 			public void run()
 			{
-				sender.sendMessage(msg);
+				if (sender != null)
+					sender.sendMessage(msg);
 			}
 		}, 1);
 	}
