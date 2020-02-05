@@ -19,6 +19,12 @@ public class Reports extends Command
 
 	public boolean run(CommandSender sender, String[] args)
 	{
+		if (!sender.hasPermission("pr.view"))
+		{
+			sender.sendMessage(ChatColor.RED + "You don't have permission to view reports!");
+			return true;
+		}
+		
 		ArrayList<SystemReport> reports = pr.reportManager.getReports();
 		
 		if (reports.size() < 1)

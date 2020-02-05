@@ -19,6 +19,12 @@ public class Report extends Command
 
 	public boolean run(CommandSender sender, String[] args)
 	{
+		if (!sender.hasPermission("pr.report"))
+		{
+			sender.sendMessage(ChatColor.RED + "You don't have permission to issue reports!");
+			return true;
+		}
+		
 		if (args.length < 2)
 			return false;
 		

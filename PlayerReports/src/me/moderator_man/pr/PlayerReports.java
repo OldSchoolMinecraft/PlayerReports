@@ -70,12 +70,6 @@ public class PlayerReports extends JavaPlugin
 				return true;
 			}
 			
-			if (cmnd.isAdminOnly() && (!sender.isOp() || !sender.hasPermission("pr.admin")))
-			{
-				sendError(sender, "Insufficient permissions!");
-				return true;
-			}
-			
 			return cmnd.run(sender, args);
 		}
 		

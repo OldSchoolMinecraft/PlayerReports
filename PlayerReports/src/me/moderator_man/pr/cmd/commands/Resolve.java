@@ -15,6 +15,12 @@ public class Resolve extends Command
 
 	public boolean run(CommandSender sender, String[] args)
 	{
+		if (!sender.hasPermission("pr.resolve"))
+		{
+			sender.hasPermission(ChatColor.RED + "You don't have permission to resolve reports!");
+			return true;
+		}
+		
 		if (args.length < 1)
 			return false;
 		

@@ -3,6 +3,7 @@ package me.moderator_man.pr.cmd.commands;
 import java.io.File;
 import java.util.ArrayList;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 import me.moderator_man.pr.SystemReport;
@@ -17,6 +18,12 @@ public class FlushReports extends Command
 
 	public boolean run(CommandSender sender, String[] args)
 	{
+		if (!sender.hasPermission("pr.flush"))
+		{
+			sender.sendMessage(ChatColor.RED + "You don't have permission to flush reports!");
+			return true;
+		}
+		
 		ArrayList<SystemReport> reports = pr.reportManager.getReports();
 		
 		int index = 0;
